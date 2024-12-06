@@ -1,3 +1,27 @@
+def isSafeCheck(list)
+  direction = list[0] <=> list[1]
+  if direction == 0
+    return false
+  else
+    previous = list[0]
+    (1...list.size).each do |i|
+      difference = 0;
+      if direction == 1
+        difference = previous - list[i]
+      else
+        difference = list[i] - previous
+      end
+      case difference
+        when 3, 2, 1
+          previous = list[i]
+        else
+          return false
+      end
+    end
+  end
+  return true
+end
+
 def calculateSafeResults(processedInput)
   safeResultsCount = 0
   processedInput.each do |key, values|
@@ -5,32 +29,7 @@ def calculateSafeResults(processedInput)
       safeResultsCount+= 1
       next
     else
-      safe = true
-      direction = values[0] <=> values[1]
-      if direction == 0
-        next
-      else
-        previous = values[0]
-        puts "key:#{key}, previous:#{previous}, direction:#{direction}"
-        (1...values.size).each do |i|
-          difference = 0;
-          if direction == 1
-            difference = previous - values[i]
-          else
-            difference = values[i] - previous
-          end
-          puts "key:#{key}, previous:#{previous}, value:#{values[i]}, difference:#{difference}"
-          case difference
-            when 3, 2, 1
-              previous = values[i]
-            else
-              safe = false
-          end
-          break unless safe
-        end
-        safeResultsCount+= 1 if safe
-      end
-      puts "key:#{key}, safeResultsCount:#{safeResultsCount}"
+      safeResultsCount+= 1 if isSafeCheck values
     end
   end
   return safeResultsCount
@@ -43,27 +42,18 @@ def calculateSafeResultsWithDamper(processedInput)
       safeResultsCount+= 1
       next
     else
-      safe = true
-      direction = values[0] <=> values[1]
-      if direction == 0
+      if isSafeCheck values
+        safeResultsCount+= 1
         next
       else
-        previous = values[0]
-        (1...values.size).each do |i|
-          difference = 0;
-          if direction == 1
-            difference = previous - values[i]
-          else
-            difference = values[i] - previous
+        safe = false
+        # implimenting damper
+        (0...values.size).each do |i|
+          dampenedList = values[0...i] + values[(i + 1)..-1]
+          if isSafeCheck dampenedList
+            safe = true
           end
-          case difference
-            when 3, 2, 1
-              previous = values[i]
-              next
-            else
-              safe = false
-          end
-          break unless safe
+          break if safe
         end
         safeResultsCount+= 1 if safe
       end
