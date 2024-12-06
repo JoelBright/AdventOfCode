@@ -1,0 +1,66 @@
+8 6 7 8 9
+3 5 4 3 2
+5 9 6 7 8
+6 3 5 4 3
+5 6 9 7 8
+6 5 2 4 3
+5 6 7 9 8
+6 5 4 2 3
+5 6 7 8 9
+6 5 4 3 2
+6 6 7 8 9
+5 5 4 3 2
+6 6 7 8 9
+5 5 4 3 2
+5 6 6 8 9
+6 5 5 3 2
+5 6 7 7 9
+6 5 4 4 2
+5 6 7 8 8
+6 5 4 3 3
+3 6 7 8 9
+8 5 4 3 2
+5 8 7 8 9
+6 3 4 3 2
+5 6 9 7 8
+6 5 2 4 3
+5 6 7 9 8
+6 5 4 2 3
+2 3 4 5 9
+9 8 7 6 2
+
+
+8 6 7 8 9: Safe by removing the first level, 8.
+3 5 4 3 2: Safe by removing the first level, 3.
+5 9 6 7 8: Safe by removing the second level, 9.
+6 3 5 4 3: Safe by removing the second level, 3.
+5 6 9 7 8: Safe by removing the third level, 9.
+6 5 2 4 3: Safe by removing the third level, 2.
+5 6 7 9 8: Safe by removing the fourth level, 9.
+6 5 4 2 3: Safe by removing the fourth level, 2.
+5 6 7 8 9: Safe without removing any level.
+6 5 4 3 2: Safe without removing any level.
+6 6 7 8 9: Safe by removing the first level, 6.
+5 5 4 3 2: Safe by removing the first level, 5.
+6 6 7 8 9: Safe by removing the second level, 6.
+5 5 4 3 2: Safe by removing the second level, 5.
+5 6 6 8 9: Safe by removing the third level, 6.
+6 5 5 3 2: Safe by removing the third level, 5.
+5 6 7 7 9: Safe by removing the fourth level, 7.
+6 5 4 4 2: Safe by removing the fourth level, 4.
+5 6 7 8 8: Safe by removing the fifth level, 8.
+6 5 4 3 3: Safe by removing the fifth level, 3.
+3 6 7 8 9: Safe without removing any level.
+8 5 4 3 2: Safe without removing any level.
+5 8 7 8 9: Safe by removing the second level, 8.
+6 3 4 3 2: Safe by removing the second level, 3.
+5 6 9 7 8: Safe by removing the third level, 9.
+6 5 2 4 3: Safe by removing the third level, 2.
+5 6 7 9 8: Safe by removing the fourth level, 9.
+6 5 4 2 3: Safe by removing the fourth level, 3.
+2 3 4 5 9: Safe by removing the fifth level, 9.
+9 8 7 6 2: Safe by removing the fifth level, 2.
+
+Thanks to the Problem Dampener, 30 reports are actually safe!
+
+Update your analysis by handling situations where the Problem Dampener can remove a single level from unsafe reports. How many reports are now safe?
